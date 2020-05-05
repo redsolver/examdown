@@ -40,7 +40,7 @@ install-cmark:
 
 checkdeps:
 	getopt --version
-	cmark --version | head -n 1
+	cmark-gfm --version | head -n 1
 	wkhtmltopdf --version
 	ls vendor/github-markdown-css/github-markdown.css
 	ls vendor/MathJax/MathJax.js

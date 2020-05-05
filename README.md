@@ -1,5 +1,7 @@
 # Examdown
 
+Forked from https://github.com/pldiiw/examdown, switched from `cmark` to `cmark-gfm`
+
 > Write your exam with Markdown + AsciiMath, deliver a PDF
 
 I sometimes need to write documents with equations in it. Word is way too
@@ -19,27 +21,30 @@ First, check that you have all the dependencies:
 
 ```
 $ make -s checkdeps
-getopt from util-linux 2.28.2
-cmark 0.27.1 - CommonMark converter
-wkhtmltopdf 0.12.3.2
+getopt from util-linux 2.35.1
+cmark-gfm 0.29.0.gfm.0 - CommonMark with GitHub Flavored Markdown converter
+wkhtmltopdf 0.12.5
 vendor/github-markdown-css/github-markdown.css
 vendor/MathJax/MathJax.js
 ```
 
 If the output looks like this, then you have all the dependencies needed.
 
-If `cmark` is missing, two recipes are provided to help you obtain it:
+If `cmark-gfm` is missing, install it with your favorite package manager,
+like `pacman`:
 
 ```
-$ make -s build-cmark
-$ sudo make -s install-cmark
+$ sudo pacman -S cmark-gfm
 ```
+
+Or get it here: https://github.com/github/cmark-gfm
+
 
 If `wkhtmltopdf` is missing, install it with your favorite package manager,
-like `apt`:
+like `pacman`:
 
 ```
-$ sudo apt install wkhtmltopdf
+$ sudo pacman -S wkhtmltopdf
 ```
 
 If the two last ones are missing, just run these two commands:

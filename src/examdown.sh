@@ -65,11 +65,11 @@ done
 origindir="$PWD"
 prefix="${0%/*/*}"
 out="${out:-${bigo_option:+${in%.*}.pdf}}"
-title="${title:-Exam of $(date)}"
+title="${title:-Document of $(date)}"
 css="${css:-$prefix/lib/examdown/github-markdown.css}"
 am_svg="$prefix/lib/examdown/MathJax/MathJax.js?config=AM_SVG-full"
 body="$(sed 's:~~\(.*\)~~:<span class="underline">\1</span>:g' "$in" |
-  cmark -e table -e strikethrough -e autolink --smart -t html)"
+  cmark-gfm --smart -e table -e strikethrough --unsafe -t html)"
 
 cat <<EOF > examdown-temp.html
 <!DOCTYPE html>
